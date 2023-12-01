@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::{self, BufRead, BufReader};
 
 fn main() -> io::Result<()> {
-    let file_path = "src/task1.txt";
+    let file_path = "src/Day1/input.txt";
     let file = File::open(file_path)?;
 
     let reader = BufReader::new(file);
