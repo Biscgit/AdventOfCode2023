@@ -16,14 +16,7 @@ fn main() {
         let mut line_index: i32 = 0;
         let parts: Vec<&str> = line.split(|c: char| !c.is_numeric()).collect();
 
-        let mut break_after_first = false;
-
         'part_loop: for part in parts {
-            if break_after_first {
-                break;
-            } else {
-                break_after_first = false;
-            }
             // part is a number => check surrounding symbols
             match part.parse::<i32>() {
                 Ok(number) => {
@@ -43,7 +36,6 @@ fn main() {
                                         total_sum += number;
                                         line_index += (part.len() as i32) + 1;
 
-                                        println!("counting {number}");
                                         continue 'part_loop;
                                     }
                                 }
@@ -60,7 +52,6 @@ fn main() {
                                 total_sum += number;
                                 line_index += (part.len() as i32) + 1;
 
-                                println!("counting {number}");
                                 continue 'part_loop;
                             }
                         }
@@ -72,7 +63,6 @@ fn main() {
                                 total_sum += number;
                                 line_index += (part.len() as i32) + 1;
 
-                                println!("counting {number}");
                                 continue 'part_loop;
                             }
                         }
@@ -93,7 +83,6 @@ fn main() {
                                         total_sum += number;
                                         line_index += (part.len() as i32) + 1;
 
-                                        println!("counting {number}");
                                         continue 'part_loop;
                                     }
                                 }
@@ -101,7 +90,6 @@ fn main() {
                         }
                     }
 
-                    println!("not counting {number}");
                     line_index += (part.len() as i32) + 1;
                 }
 
