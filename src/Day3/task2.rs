@@ -1,7 +1,6 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-#[derive(Debug)]
 struct FoundStar {
     value: u32,
     star_x: usize,
