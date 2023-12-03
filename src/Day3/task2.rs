@@ -121,8 +121,6 @@ fn main() {
                     )
                 }
             }
-
-            // check below -1 +1 and right!, for another number check above and left
         }
     }
 
