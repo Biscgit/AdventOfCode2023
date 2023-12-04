@@ -22,6 +22,7 @@ fn main() {
         winning.retain(|s| !s.is_empty());
         chosen.retain(|s| !s.is_empty());
 
+        // calculating for each number
         let mut points: f64 = 0.5;
 
         for x in &winning {
@@ -30,6 +31,7 @@ fn main() {
             }
         }
 
+        // summing up points
         total_sum += (points.floor() as u32);
     }
 
