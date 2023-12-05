@@ -25,7 +25,7 @@ impl SeedIterator {
         let ranges: Vec<(u64, u64)> = range_seeds.chunks(2)
             .map(|chunk| match chunk {
                 &[a, b] => (a, b),
-                _ => unreachable!(),
+                _ => core::unreachable!(),
             })
             .collect();
 
