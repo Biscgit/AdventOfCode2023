@@ -6,6 +6,7 @@ fn get_next(sequence: Vec<i32>) -> i32 {
     // start recursion
     sequence[sequence.len() - 1] + recursive_next(sequence)
 }
+
 fn recursive_next(sequence: Vec<i32>) -> i32 {
     let mut differences: Vec<i32> = Vec::new();
 
@@ -19,7 +20,7 @@ fn recursive_next(sequence: Vec<i32>) -> i32 {
         0
     } else {
         differences[differences.len() - 1] + recursive_next(differences)
-    }
+    };
 }
 
 fn main() {
@@ -37,7 +38,7 @@ fn main() {
             .filter_map(|&s| s.parse::<i32>().ok())
             .collect::<Vec<i32>>();
 
-        let next =  get_next(values);
+        let next = get_next(values);
         sum += next;
     }
 
