@@ -1,6 +1,5 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use std::usize;
 
 fn main() {
     let file_path = "src/Day8/input.txt";

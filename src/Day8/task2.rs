@@ -1,6 +1,5 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use std::usize;
 
 fn calculate_lcm(numbers: Vec<u64>) -> Option<u64> {
     if numbers.is_empty() {
