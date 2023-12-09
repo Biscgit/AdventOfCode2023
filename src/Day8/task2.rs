@@ -1,7 +1,31 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::usize;
-use num_integer::lcm;
+
+fn calculate_lcm(numbers: Vec<u64>) -> Option<u64> {
+    if numbers.is_empty() {
+        return None;
+    }
+
+    // Helper function to calculate the GCD
+    fn gcd(mut a: u64, mut b: u64) -> u64 {
+        while b != 0 {
+            let temp = b;
+            b = a % b;
+            a = temp;
+        }
+        a
+    }
+
+    // Calculate the LCM for two numbers
+    fn lcm(a: u64, b: u64) -> u64{
+        a * b / gcd(a, b)
+    }
+
+    // Calculate the LCM for the entire vector
+    let result = numbers.iter().fold(numbers[0], |acc, &num| lcm(acc, num));
+    Some(result)
+}
 
 fn main() {
     let file_path = "src/Day8/input.txt";
@@ -50,7 +74,7 @@ fn main() {
         let mut counter: usize = 0;
         let mut current = starting[node];
 
-        'l: loop {
+        loop {
             let mut index = usize::MAX;
             for (i, x) in source.iter().enumerate() {
                 if (*x).as_str() == current {
@@ -68,12 +92,12 @@ fn main() {
 
             if current.ends_with("Z") {
                 steps.push(counter as u64);
-                break 'l;
+                break;
             }
         }
     }
 
     // calculate LCM for vales
-    let result = steps.iter().fold(steps[0], |acc, &num| lcm(acc, num));
+    let result = calculate_lcm(steps).unwrap();
     println!("{result} steps are needed");
 }
